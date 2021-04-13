@@ -5,11 +5,17 @@
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
 \usepackage{graphicx}
+\usepackage[utf8]{inputenc}
 \usepackage[portuguese]{babel}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.4}
+\usepgfplotslibrary{statistics}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+
 \begin{document}
 
 \title{Estudo de hierarquia de memória}
@@ -59,6 +65,50 @@ No contexto discutido, é apresentado um problema em aberto (um problema
 pode ser escrito como uma pergunta), em seguida um objetivo para "responder" 
 ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
 um parágrafo para descrever a organização do artigo é feito.
+
+\begin{figure}[h!]
+
+  \centering
+
+  \begin{tikzpicture}
+
+    \begin{axis}[
+      xlabel=dias da semana,
+      ylabel=\textbf{Audiências em Milhares},
+      ymajorgrids=true,
+        legend style={at={(0.0,.91)},anchor=west},
+    ]
+
+    % Add values and attributes for the first plot
+    \addplot[color=red,mark=x] coordinates {
+      (1, 220)
+      (2, 200)
+      (3, 300)
+      (4, 480)
+      (5, 500)
+      (6, 520)
+      (7, 515)
+    };
+    
+    % Add values and attributes for the second plot
+    \addplot[color=blue,mark=*] coordinates {
+      (1, 300)
+      (2, 120)
+      (3, 220)
+      (4, 130)
+      (5, 420)
+      (6, 500)
+      (7, 510)
+    };
+    
+    \legend{TV VIVA,TV Notícias}
+
+    \end{axis}
+    
+  \end{tikzpicture}
+
+\end{figure}
+  
 
 \section{Trabalhos Correlatos}
 
