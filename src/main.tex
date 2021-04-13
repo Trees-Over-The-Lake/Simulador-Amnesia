@@ -109,13 +109,11 @@ esta pode ser descrita no início desta seção.
       xmode = log,
       log basis x={10},
       clip=false,
-      every axis plot post/.style={red!75!black, very thick},
-      /tikz/plot label/.style={black, anchor=west}
       ymajorgrids=true,
       legend style={at={(0.0,.92)},anchor=west},
       title={\textit{\textbf{Cache com algoritmo de substituição FIFO}}},
     ]
-    \addplot [dashed] coordinates {
+    \addplot [dashed,color=blue] coordinates {
        (10,0.1)
        (1000,0.207)
        (10000,0.1947)
