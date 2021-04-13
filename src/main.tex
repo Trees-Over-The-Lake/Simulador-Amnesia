@@ -66,51 +66,6 @@ pode ser escrito como uma pergunta), em seguida um objetivo para "responder"
 ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
 um parágrafo para descrever a organização do artigo é feito.
 
-\begin{figure}[h!]
-
-  \centering
-
-  \begin{tikzpicture}
-
-    \begin{axis}[
-      xlabel=dias da semana,
-      ylabel=\textbf{Audiências em Milhares},
-      ymajorgrids=true,
-        legend style={at={(0.0,.91)},anchor=west},
-      title={\textit{\textbf{Título}}},
-    ]
-
-    % Add values and attributes for the first plot
-    \addplot[color=red,mark=x] coordinates {
-      (1, 220)
-      (2, 200)
-      (3, 300)
-      (4, 480)
-      (5, 500)
-      (6, 520)
-      (7, 515)
-    };
-    
-    % Add values and attributes for the second plot
-    \addplot[color=blue,mark=*] coordinates {
-      (1, 300)
-      (2, 120)
-      (3, 220)
-      (4, 130)
-      (5, 420)
-      (6, 500)
-      (7, 510)
-    };
-    
-    \legend{TV VIVA,TV Notícias}
-
-    \end{axis}
-    
-  \end{tikzpicture}
-
-\end{figure}
-  
-
 \section{Trabalhos Correlatos}
 
 Nesta seção, artigos relacionados à simulações de memória são apresentados.
@@ -137,6 +92,40 @@ Nesta seção, os resultados são apresentados em gráficos. Para cada figura,
 importante lembrar que deve ter texto com explicação.
 Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
 esta pode ser descrita no início desta seção.
+
+\begin{figure}[!ht]
+
+  \centering
+
+  \begin{tikzpicture}
+
+    \begin{axis}[
+      width =\linewidth,
+      xlabel=Quantidade de instrução,
+      ylabel=\textbf{Hit rate},
+      domain = 1:100000,
+      xmin=1, xmax=100000,
+      ymin=0, ymax=22,
+      xmode = log,
+      log basis x={10},
+      clip=false,
+      every axis plot post/.style={red!75!black, very thick},
+      /tikz/plot label/.style={black, anchor=west}
+      ymajorgrids=true,
+      legend style={at={(0.0,.92)},anchor=west},
+      title={\textit{\textbf{Cache com algoritmo de substituição FIFO}}},
+    ]
+    \addplot [dashed]{ 1/((1-0.5) + 0.5/x) };
+    \addplot [dotted]{ 1/((1-0.8) + 0.8/x) };
+    \addplot [loosely dotted]{ 1/((1-0.9) + 0.9/x) };
+    \addplot [solid]{ 1/((1-0.95) + 0.95/x) };     
+    
+
+    \end{axis}
+    
+  \end{tikzpicture}
+
+\end{figure}
 
 \section{Conclusões}
 
