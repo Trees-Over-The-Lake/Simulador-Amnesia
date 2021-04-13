@@ -66,51 +66,6 @@ pode ser escrito como uma pergunta), em seguida um objetivo para "responder"
 ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
 um parágrafo para descrever a organização do artigo é feito.
 
-\begin{figure}[h!]
-
-  \centering
-
-  \begin{tikzpicture}
-
-    \begin{axis}[
-      xlabel=dias da semana,
-      ylabel=\textbf{Audiências em Milhares},
-      ymajorgrids=true,
-        legend style={at={(0.0,.91)},anchor=west},
-      title={\textit{\textbf{Título}}},
-    ]
-
-    % Add values and attributes for the first plot
-    \addplot[color=red,mark=x] coordinates {
-      (1, 220)
-      (2, 200)
-      (3, 300)
-      (4, 480)
-      (5, 500)
-      (6, 520)
-      (7, 515)
-    };
-    
-    % Add values and attributes for the second plot
-    \addplot[color=blue,mark=*] coordinates {
-      (1, 300)
-      (2, 120)
-      (3, 220)
-      (4, 130)
-      (5, 420)
-      (6, 500)
-      (7, 510)
-    };
-    
-    \legend{TV VIVA,TV Notícias}
-
-    \end{axis}
-    
-  \end{tikzpicture}
-
-\end{figure}
-  
-
 \section{Trabalhos Correlatos}
 
 Nesta seção, artigos relacionados à simulações de memória são apresentados.
@@ -137,6 +92,75 @@ Nesta seção, os resultados são apresentados em gráficos. Para cada figura,
 importante lembrar que deve ter texto com explicação.
 Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
 esta pode ser descrita no início desta seção.
+
+\begin{figure}[!ht]
+
+  \centering
+
+  \begin{tikzpicture}
+
+    \begin{axis}[
+      xlabel=Quantidade de instrução,
+      ylabel=\textbf{Hit rate},
+      width=\linewidth,
+      clip=false,
+      xmin=0,
+      xmax=100000,
+      domain=1:100000,
+      xtick={0,10,...,100000},
+      /pgf/number format/1000 sep={},
+      xmode=log,
+      log basis x={10},
+      ymin=0,
+      ymax=1,
+      ymajorgrids=true,
+      legend style={at={(0.0,.92)},anchor=west},
+      title={\textit{\textbf{Cache com algoritmo de substituição FIFO}}},
+    ]
+
+    % Add values and attributes for the first plot
+    \addplot[color=red,mark=x] coordinates {
+      (10, 220)
+      (100, 200)
+      (1000, 300)
+      (10000, 480)
+      (100000, 500)
+    };
+    
+    % Add values and attributes for the second plot
+    \addplot[color=blue,mark=*] coordinates {
+      (10, 220)
+      (100, 200)
+      (1000, 300)
+      (10000, 480)
+      (100000, 500)
+    };
+
+     % Add values and attributes for the third plot
+     \addplot[color=green,mark=triangle*] coordinates {
+      (10, 220)
+      (100, 200)
+      (1000, 300)
+      (10000, 480)
+      (100000, 500)
+    };
+    
+    % Add values and attributes for the fourth plot
+    \addplot[color=violet,mark=square*] coordinates {
+      (10, 220)
+      (100, 200)
+      (1000, 300)
+      (10000, 480)
+      (100000, 500)
+    };
+    
+    \legend{2 blocos, 4 blocos, 8 blocos, 16 blocos}
+
+    \end{axis}
+    
+  \end{tikzpicture}
+
+\end{figure}
 
 \section{Conclusões}
 
