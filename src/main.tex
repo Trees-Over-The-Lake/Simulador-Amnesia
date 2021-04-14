@@ -88,10 +88,10 @@ por vocês para simulações.
 
 \section{Avaliação dos Resultados}
 
-Nesta seção, os resultados são apresentados em gráficos. Para cada figura,
-importante lembrar que deve ter texto com explicação.
-Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
-esta pode ser descrita no início desta seção.
+%Nesta seção, os resultados são apresentados em gráficos. Para cada figura,
+%importante lembrar que deve ter texto com explicação.
+%Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
+%esta pode ser descrita no início desta seção.
 
 \begin{figure}[!ht]
 
@@ -225,6 +225,154 @@ esta pode ser descrita no início desta seção.
       (750, 0.9866667)
       (1000, 0.99)
       (10000, 0.999)
+   };
+
+  \legend{2 linhas, 4 linhas, 8 linhas, 16 linhas}
+
+    \end{axis}
+    
+  \end{tikzpicture}
+
+\end{figure}
+
+Tempo total para acesso da cache usando valores arbitrários.
+
+\begin{figure}[!ht]
+
+  \centering
+
+  \begin{tikzpicture}
+
+    \begin{axis}[
+      width =\linewidth,
+      xlabel=Quantidade de instrução,
+      ylabel=\textbf{Tempo de acesso a Cache},
+      domain = 1:10000,
+      xmin=10, xmax=10000,
+      ymin=0, ymax=100000,
+      ymode = log,
+      log basis y={10},
+      xmode = log,
+      log basis x={10},
+      clip=false,
+      every axis plot/.append style={ultra thick},
+      ymajorgrids=true,
+      legend  style={at={(0.5 ,-0.20)},
+      anchor=north,legend  columns =-1},
+      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}},
+    ]
+    \addplot [dashed,color=brown] coordinates {
+      (10, 100)
+      (50, 490)
+      (100, 980)
+      (250, 2330)
+      (500, 4520)
+      (750, 6770)
+      (1000, 8930)
+      (10000, 90530)
+    };
+    \addplot [dotted,color=blue] coordinates {
+      (10, 90)
+      (50, 440)
+      (100, 820)
+      (250, 1860)
+      (500, 3630)
+      (750, 5500)
+      (1000, 7190)
+      (10000, 70870)
+   };
+   \addplot [loosely dotted,color=purple] coordinates {
+      (10, 80)
+      (50, 250)
+      (100, 390)
+      (250, 780)
+      (500, 1590)
+      (750, 2450)
+      (1000, 3140)
+      (10000, 30170)
+   };
+   \addplot [solid,color=green] coordinates {
+      (10, 80)
+      (50, 150)
+      (100, 200)
+      (250, 350)
+      (500, 600)
+      (750, 850)
+      (1000, 1100)
+      (10000, 10100)
+   };
+
+  \legend{2 linhas, 4 linhas, 8 linhas, 16 linhas}
+
+    \end{axis}
+    
+  \end{tikzpicture}
+
+\end{figure}
+
+\begin{figure}[!ht]
+
+  \centering
+
+  \begin{tikzpicture}
+
+    \begin{axis}[
+      width =\linewidth,
+      xlabel=Quantidade de instrução,
+      ylabel=\textbf{Tempo de acesso a Cache},
+      domain = 1:10000,
+      xmin=10, xmax=10000,
+      ymin=0, ymax=100000,
+      ymode = log,
+      log basis y={10},
+      xmode = log,
+      log basis x={10},
+      clip=false,
+      every axis plot/.append style={ultra thick},
+      ymajorgrids=true,
+      legend  style={at={(0.5 ,-0.20)},
+      anchor=north,legend  columns =-1},
+      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}},
+    ]
+    \addplot [dashed,color=brown] coordinates {
+      (10, 100)
+      (50, 480)
+      (100, 970)
+      (250, 2320)
+      (500, 4530)
+      (750, 6770)
+      (1000, 8950)
+      (10000, 90550)
+    };
+    \addplot [dotted,color=blue] coordinates {
+      (10, 90)
+      (50, 420)
+      (100, 800)
+      (250, 1830)
+      (500, 3630)
+      (750, 5520)
+      (1000, 7170)
+      (10000, 70720)
+   };
+   \addplot [loosely dotted,color=purple] coordinates {
+      (10, 80)
+      (50, 260)
+      (100, 400)
+      (250, 780)
+      (500, 1580)
+      (750, 2470)
+      (1000, 3120)
+      (10000, 30390)
+   };
+   \addplot [solid,color=green] coordinates {
+      (10, 80)
+      (50, 150)
+      (100, 200)
+      (250, 350)
+      (500, 600)
+      (750, 850)
+      (1000, 1100)
+      (10000, 10100)
    };
 
   \legend{2 linhas, 4 linhas, 8 linhas, 16 linhas}
