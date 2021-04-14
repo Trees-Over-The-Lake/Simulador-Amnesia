@@ -10,6 +10,8 @@
 \usepackage{textcomp}
 \usepackage{xcolor}
 \usepackage{pgfplots}
+\usepackage{float}
+
 \pgfplotsset{compat=1.4}
 \usepgfplotslibrary{statistics}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
@@ -72,10 +74,6 @@ Nesta seção, artigos relacionados à simulações de memória são apresentado
 Por exemplo, para cada artigo, um parágrafo. Ao final, um parágrafo que menciona
 a diferença entre o artigo em questão e os artigos correlatos.
 
-\subsection{Exemplo de subsection}
-
-Como colocar subsection no sistema IEEE
-
 \section{Metodologia ou Proposta de Arquiteturas}
 
 É possível ter duas seções, uma para cada, mas somente uma seção chamada 
@@ -99,15 +97,11 @@ Para fazer esses testes utilizamos um conjunto de 10, 50, 100, 250, 500, 750, 1.
 instruções.
 
 \subsection{Gráficos de hit rate por número de instruções}
-
-\begin{figure}[!ht]
-
-  \centering
-
+\raggedbottom
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Hit rate},
       domain = 1:10000,
@@ -168,17 +162,11 @@ instruções.
     \end{axis}
     
   \end{tikzpicture}
-
-\end{figure}
-
-\begin{figure}[!ht]
-
-  \centering
-
+  \raggedbottom
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Hit rate},
       domain = 1:10000,
@@ -240,8 +228,6 @@ instruções.
     
   \end{tikzpicture}
 
-\end{figure}
-
 Os dois gráficos acima foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos,
 considerando o artigo do James E. Smith e James R. Goodman, Instruction Cache Replacement Policies and Organizations
 nossos resultados foram bem próximos. Considerando que no início, pensavamos que haveria uma diferença significativa entre
@@ -251,14 +237,10 @@ eram válidos.
 
 \subsection{Tempo total de acesso aos dados por quantidade de instruções}
 
-\begin{figure}[!ht]
-
-  \centering
-
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Tempo de acesso a Cache},
       domain = 1:10000,
@@ -322,16 +304,10 @@ eram válidos.
     
   \end{tikzpicture}
 
-\end{figure}
-
-\begin{figure}[!ht]
-
-  \centering
-
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Tempo de acesso a Cache},
       domain = 1:10000,
@@ -394,8 +370,6 @@ eram válidos.
     \end{axis}
     
   \end{tikzpicture}
-
-\end{figure}
 
 Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
 até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
