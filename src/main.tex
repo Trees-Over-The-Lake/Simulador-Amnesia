@@ -93,6 +93,13 @@ por vocês para simulações.
 %Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
 %esta pode ser descrita no início desta seção.
 
+Nos gráficos subsequentes, há uma demonstração de como a memória cache se comporta ao ser usada com
+um grande conjunto de instruções de \emph{load} e \emph{store} (maior que sua capacidade) em cenários com caches de 2, 4, 8 e 16 linhas.
+Para fazer esses testes utilizamos um conjunto de 10, 50, 100, 250, 500, 750, 1.000 e 10.000 
+instruções.
+
+\subsection{Gráficos de hit rate por número de instruções}
+
 \begin{figure}[!ht]
 
   \centering
@@ -235,7 +242,14 @@ por vocês para simulações.
 
 \end{figure}
 
-Tempo total para acesso da cache usando valores arbitrários.
+Os dois gráficos acima foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos,
+considerando o artigo do James E. Smith e James R. Goodman, Instruction Cache Replacement Policies and Organizations
+nossos resultados foram bem próximos. Considerando que no início, pensavamos que haveria uma diferença significativa entre
+os algoritmos LRU e FIFO para substituição de valores na cache, achamos que nossos testes estavam errados e que precisariamos
+refazê-los, olhando a semelhança de resultados entre os nossos experimentos e os experimentos do artigo vimos que os valores
+eram válidos.
+
+\subsection{Tempo total de acesso aos dados por quantidade de instruções}
 
 \begin{figure}[!ht]
 
@@ -382,6 +396,10 @@ Tempo total para acesso da cache usando valores arbitrários.
   \end{tikzpicture}
 
 \end{figure}
+
+Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
+até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
+apenas no caso da cache com 16 linhas (mesmo tamanho que o processador),
 
 \section{Conclusões}
 
