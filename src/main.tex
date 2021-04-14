@@ -98,6 +98,10 @@ instruções.
 
 \subsection{Gráficos de hit rate por número de instruções}
 \raggedbottom
+
+  \begin{figure}[H]
+    \centering
+    \caption{\textit{\textbf{Cache com algoritmo de substituição FIFO}}}
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -114,7 +118,6 @@ instruções.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Cache com algoritmo de substituição FIFO}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 0.1)
@@ -162,7 +165,11 @@ instruções.
     \end{axis}
     
   \end{tikzpicture}
-  \raggedbottom
+
+\end{figure}
+
+  \begin{figure}[H]
+    \caption{\textit{\textbf{Cache com algoritmo de substituição LRU}}}
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -179,7 +186,6 @@ instruções.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Cache com algoritmo de substituição LRU}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 0.1)
@@ -228,6 +234,8 @@ instruções.
     
   \end{tikzpicture}
 
+\end{figure}
+
 Os dois gráficos acima foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos,
 considerando o artigo do James E. Smith e James R. Goodman, Instruction Cache Replacement Policies and Organizations
 nossos resultados foram bem próximos. Considerando que no início, pensavamos que haveria uma diferença significativa entre
@@ -237,6 +245,9 @@ eram válidos.
 
 \subsection{Tempo total de acesso aos dados por quantidade de instruções}
 
+  \begin{figure}[H]
+
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}}
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -255,7 +266,6 @@ eram válidos.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 100)
@@ -304,6 +314,12 @@ eram válidos.
     
   \end{tikzpicture}
 
+\end{figure}
+
+  \begin{figure}[H]
+
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}}
+
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -322,7 +338,6 @@ eram válidos.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 100)
@@ -370,6 +385,8 @@ eram válidos.
     \end{axis}
     
   \end{tikzpicture}
+
+\end{figure}
 
 Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
 até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
