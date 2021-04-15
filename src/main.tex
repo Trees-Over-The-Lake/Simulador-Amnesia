@@ -69,12 +69,20 @@ Cache, algoritmos, FIFO, LRU, Tamanho Cache
 
 \section{Introdução}
 
-Espera-se que nesta seção, seja escrita uma contextualização inicial 
-para situar o leitor. Ou seja, saber em qual área ele está "pisando".
-No contexto discutido, é apresentado um problema em aberto (um problema 
-pode ser escrito como uma pergunta), em seguida um objetivo para "responder" 
-ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
-um parágrafo para descrever a organização do artigo é feito.
+%Espera-se que nesta seção, seja escrita uma contextualização inicial 
+%para situar o leitor. Ou seja, saber em qual área ele está "pisando".
+%No contexto discutido, é apresentado um problema em aberto (um problema 
+%pode ser escrito como uma pergunta), em seguida um objetivo para "responder" 
+%ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
+%um parágrafo para descrever a organização do artigo é feito.
+
+A  Cache é um dispositivo de acesso rápido, que fica localizado dentro do processador, com a intenção de reduzir o acesso do processador à memória principal, que demanda um tempo de acesso muito superior à cache. Criando uma referência da localidade do dado na memória principal, até mesmo gravando esses dados,
+porém existe um limite de quantos dados podem ser armazenados para isso é necessário uma política de armazenamento para reocupar espaço quando necessário.
+
+Desde a invenção dos computadores, a busca por otimizar os processos que são executados nos hardwares se tornou foco, considerando que simples ajustes podem render grandes ganhos de desempenho. Dessa forma, um algoritmo eficiente na leitura e escrita de dados na cache é de suma importância. 
+
+Com isso em mente, pensamos em políticas de substituição clássicos, LRU e o FIFO, para averiguar qual possui melhor desempenho em diferentes cenários. Começamos pensando em aumentar gradativamente o número de instruções que acessam as palavras na RAM para serem escritas na cache. Dessa forma, seria simples 
+visualizar como o número de instruções influencia no tempo de acesso aos dados. Além disso, pensamos também em vários cenários com caches de diferentes tamanhos, desde de o mínimo de espaço possível até uma cache de mesmo tamanho que a memória RAM.
 
 \section{Trabalhos Correlatos}
 
@@ -489,10 +497,10 @@ Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre cac
 
 \section{Conclusões}
 
-Nas conclusões, inicia-se com um breve resumo do que foi o trabalho desenvolvido,
-depois faz-se uma discussão acerca dos objetivos alcançados. Ou seja, os objetivos
-apresentados na Introdução casam com os resultados discutidos na seção de Resultados? 
-Quais resultados podem ser destacados? Por fim, há um parágrafo para apresentar possíveis trabalhos futuros.
+%Nas conclusões, inicia-se com um breve resumo do que foi o trabalho desenvolvido,
+%depois faz-se uma discussão acerca dos objetivos alcançados. Ou seja, os objetivos
+%apresentados na Introdução casam com os resultados discutidos na seção de Resultados? 
+%Quais resultados podem ser destacados? Por fim, há um parágrafo para apresentar possíveis trabalhos futuros.
 
 Após a realização dos testes em todos os cenários propostos, e uma análise dos gráficos plotados houve um 
 receio de que o ponto da pesquisa não havia sido alcançado, já que os resultados se mostraram pouco expressivos.
