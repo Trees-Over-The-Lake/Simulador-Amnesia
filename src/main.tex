@@ -550,14 +550,16 @@ como parâmetro o tempo de vída mínimo de um elemento na cache(\emph{Minimum l
 
 \end{figure}
 
-Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade
-dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
-até acessar esse valor no processador. Dentro dos valores que experimentamos, os 
-valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
-apenas no caso da cache com 16 linhas (mesmo tamanho que o processador), teve resultados 
-que foram significativos, houve uma grande queda no tempo de acesso dos dados.
-Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de
-2 a 8 linhas de tamanho.
+Esses dois últimos gráficos, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados,
+desde copiar da RAM para a cache até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se 
+mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão apenas no caso da cache com 16 linhas (mesmo tamanho que o processador) 
+houve uma grande queda no tempo de acesso dos dados. Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de 2 a 8 linhas de tamanho.
+
+Esses dadas nos mostram que para ter algum ganho significativo de performance seria necessário ter uma cache de tamanho próximo ao da RAM. 
+Seria algo completamente impraticável considerando a diferença de preço por unidade de memória entre as duas. O cache se apresenta com 
+gasto de tempo bastante próximos quando em tamanhos usados em processadores comerciais. Demonstrando que independente desses algoritmos 
+possuem um maior hit hate em caches maiores. Dessa forma, aumentar a cache importa mais do que o algoritmo escolhido.
+
 
 \section{Conclusões}
 
