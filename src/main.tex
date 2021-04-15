@@ -385,13 +385,14 @@ instruções.
 
 \end{figure}
 
-Os dois gráficos acima foram montados usando os valores que extraímos. 
-Nota-se que os resultados foram muito próximos, aos resultados de James 
-E. Smith e James R. Goodman\cite{b1}. Considerando que no início, pensavamos que haveria
-uma diferença significativa entre os algoritmos LRU e FIFO para substituição de valores na 
-cache, achamos que nossos testes estavam errados e que precisariamos refazê-los, olhando 
-a semelhança de resultados entre os nossos experimentos e os experimentos do artigo vimos 
-que os valores eram válidos.
+Os dois gráficos mostrados foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos, aos resultados de James E. Smith
+e James R. Goodman\cite{b1}. Considerando que no início, pensávamos que haveria uma diferença significativa entre os algoritmos LRU e FIFO para substituição
+de valores na cache, achamos que nossos testes estavam errados e que precisaríamos refazê-los, ao ler o artigo vimos que os nossos resultados na verdade estavam
+bem dentro do esperado.
+	
+Nossos testes apenas foram feitos usando caches completamente associativos, pensamos em fazer com a associatividade por conjunto e direta, mas depois de resultados
+tão inesperados, pensamos em pesquisar outros artigos relacionados que já tivessem feito esses testes para comparar os resultados e ver se os resultados seriam
+diferentes. Ao ver os dados do artigo\cite{b1}, descobrimos que teríamos valores bem semelhantes dentro dessas três arquiteturas. 
 
 \subsection{Tempo total de acesso aos dados por quantidade de instruções}
 
