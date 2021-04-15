@@ -51,13 +51,13 @@ thiagohnogueira01@gmail.com}
 
 \begin{abstract}
    Memória Cache em computadores tem vários algoritmos de 
-  substituição de dados ,dois desses algoritmos são FIFO( First In, First Out )
-  e LRU( Least Recently Used ), decidimos estudar a eficiência destes dois algoritmos.
-  Nossa ideia antes de começar é que LRU fosse ter um desempenho superior ao FIFO com o 
-  aumento do número de instruções e o aumento progresivo da Cache. Foram analisados
-  em vários testes com quantidade de instruções  diferentes e em hardware
+  substituição de dados, dois desses algoritmos são \emph{FIFO}( First In, First Out )
+  e \emph{LRU}( Least Recently Used ), decidimos estudar a eficiência destes dois algoritmos.
+  Nossa ideia antecedente é de que o LRU fosse alcançar um desempenho superior ao FIFO, com o 
+  aumento do número de instruções e o aumento progressivo da Cache. Foram analisados
+  em vários testes com quantidade de instruções diferentes e em hardwares,
   variados visando avaliar como esses algoritmos atuariam em tais situações.
-  Desta forma, poderíamos ter uma visão clara de que tanto  a modificação
+  Desta forma, poderíamos ter uma visão clara de que tanto a modificação
   do hardware quanto das instruções que executam sobre eles têm um impacto significativo
   na eficiência da leitura e escrita de dados da RAM para a cache ou de volta para a memória
   principal.
@@ -76,13 +76,25 @@ Cache, algoritmos, FIFO, LRU, Tamanho Cache
 %ao problema descrito. Depois, a contribuição científica é descrita, e por fim, 
 %um parágrafo para descrever a organização do artigo é feito.
 
-A  Cache é um dispositivo de acesso rápido, que fica localizado dentro do processador, com a intenção de reduzir o acesso do processador à memória principal, que demanda um tempo de acesso muito superior à cache. Criando uma referência da localidade do dado na memória principal, até mesmo gravando esses dados,
-porém existe um limite de quantos dados podem ser armazenados para isso é necessário uma política de armazenamento para reocupar espaço quando necessário.
+A Cache é um dispositivo de acesso rápido, que fica localizado dentro do processador,
+com a intenção de reduzir o acesso do processador à memória principal, que demanda um
+tempo de acesso muito superior à cache. Criando uma referência da localidade do dado na 
+memória principal, até mesmo gravando esses dados, porém existe um limite de quantos 
+dados podem ser armazenados para isso é necessário uma política de armazenamento para 
+reocupar espaço quando necessário.
 
-Desde a invenção dos computadores, a busca por otimizar os processos que são executados nos hardwares se tornou foco, considerando que simples ajustes podem render grandes ganhos de desempenho. Dessa forma, um algoritmo eficiente na leitura e escrita de dados na cache é de suma importância. 
+Desde a invenção dos computadores, a busca por otimizar os processos que são executados 
+nos hardwares se tornou foco, considerando que simples ajustes podem render grandes 
+ganhos de desempenho. Dessa forma, um algoritmo eficiente na leitura e escrita de 
+dados na cache é de suma importância. 
 
-Com isso em mente, pensamos em políticas de substituição clássicos, LRU e o FIFO, para averiguar qual possui melhor desempenho em diferentes cenários. Começamos pensando em aumentar gradativamente o número de instruções que acessam as palavras na RAM para serem escritas na cache. Dessa forma, seria simples 
-visualizar como o número de instruções influencia no tempo de acesso aos dados. Além disso, pensamos também em vários cenários com caches de diferentes tamanhos, desde de o mínimo de espaço possível até uma cache de mesmo tamanho que a memória RAM.
+Com isso em mente, pensamos em políticas de substituição clássicos, LRU e o FIFO, para
+averiguar qual possui melhor desempenho em diferentes cenários. Começamos pensando em 
+aumentar gradativamente o número de instruções que acessam as palavras na RAM para serem 
+escritas na cache. Dessa forma, seria simples visualizar como o número de instruções
+influencia no tempo de acesso aos dados. Além disso, pensamos também em vários cenários 
+com caches de diferentes tamanhos, desde de o mínimo de espaço possível até uma cache 
+de mesmo tamanho que a memória RAM.
 
 \section{Trabalhos Correlatos}
 
@@ -95,7 +107,7 @@ a diferença entre o artigo em questão e os artigos correlatos.
 %A metodologia utilizada no artigo consiste no estudo de artigos que se correlacionam com o tema estudado, 
 %como também a utilização e desenvolvimento de arquiteturas feitas no simulador Amnesia.
   Para a elaboração de teste utilizamos o simulador-Amnésia para elaborar algumas
-arquiteturas tabela \ref{tab1}, \ref{tab2} que a partir delas executamos os testes tabela \ref{tab3}
+arquiteturas (tabelas \ref{tab1} e \ref{tab2}) que a partir delas executamos os testes (tabela \ref{tab3})
 \begin{table}[H]
   \caption{características gerais da arquitetura i}
     \centering
@@ -145,8 +157,8 @@ arquiteturas tabela \ref{tab1}, \ref{tab2} que a partir delas executamos os test
       \label{tab2}
 \end{table}
 
-As tabelas acima mostram a arquitetura inicial utilizada no projeto para o desenvolvimento dos diversos 
-cenários que foram originados.    
+As tabelas acima mostram a arquitetura inicial utilizada no projeto para o 
+desenvolvimento dos diversos cenários que foram originados.    
 
 \begin{table}[H]
   \caption{Dados modificados}
@@ -178,9 +190,11 @@ cenários que foram originados.
       \label{tab3}
 \end{table}
 
-Ao modificar o valor do tamanho da memória e da política de substituição da cache, é possível criar 8 cenários distintos
-para se avaliar o impacto do tamanho da cache no desempenho dos metodos de substituição. Sendo assim, com os cenários propostos
-foram realizados diversos testes com o intuito de analisar a Localidade Temporal e Localidade Espacial nas arquiteturas.
+Ao modificar o valor do tamanho da memória e da política de substituição da cache,
+é possível criar 8 cenários distintos para se avaliar o impacto do tamanho da cache
+no desempenho dos metodos de substituição. Sendo assim, com os cenários propostos
+foram realizados diversos testes com o intuito de analisar a Localidade Temporal e 
+Localidade Espacial nas arquiteturas.
 
 \section{Avaliação dos Resultados}
 
@@ -189,8 +203,9 @@ foram realizados diversos testes com o intuito de analisar a Localidade Temporal
 %Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
 %esta pode ser descrita no início desta seção.
 
-Nos gráficos subsequentes, há uma demonstração de como a memória cache se comporta ao ser usada com
-um grande conjunto de instruções de \emph{load} e \emph{store} (maior que sua capacidade) em cenários com caches de 2, 4, 8 e 16 linhas.
+Nos gráficos subsequentes, há uma demonstração de como a memória cache se comporta 
+ao ser usada com um grande conjunto de instruções de \emph{load} e \emph{store} 
+(maior que sua capacidade) em cenários com caches de 2, 4, 8 e 16 linhas.
 Para fazer esses testes utilizamos um conjunto de 10, 50, 100, 250, 500, 750, 1.000 e 10.000 
 instruções.
 
@@ -488,10 +503,14 @@ eram válidos.
 
 \end{figure}
 
-Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
-até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
-apenas no caso da cache com 16 linhas (mesmo tamanho que o processador), teve resultados que foram significativos, houve uma grande queda no tempo de acesso dos dados.
-Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de 2 a 8 linhas de tamanho.
+Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade
+dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
+até acessar esse valor no processador. Dentro dos valores que experimentamos, os 
+valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
+apenas no caso da cache com 16 linhas (mesmo tamanho que o processador), teve resultados 
+que foram significativos, houve uma grande queda no tempo de acesso dos dados.
+Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de
+2 a 8 linhas de tamanho.
 
 \section{Conclusões}
 
@@ -500,11 +519,13 @@ Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre cac
 %apresentados na Introdução casam com os resultados discutidos na seção de Resultados? 
 %Quais resultados podem ser destacados? Por fim, há um parágrafo para apresentar possíveis trabalhos futuros.
 
-Após a realização dos testes em todos os cenários propostos, e uma análise dos gráficos plotados houve um 
-receio de que o ponto da pesquisa não havia sido alcançado, já que os resultados se mostraram pouco expressivos.
+Após a realização dos testes em todos os cenários propostos, e uma análise dos gráficos
+plotados houve um receio de que o ponto da pesquisa não havia sido alcançado, já que 
+os resultados se mostraram pouco expressivos.
 
-Porém, após uma análise e estudo dos artigos correlacionados, foi possível observar que a política de substituição 
-LRU se mostra de forma pouco significativa mais eficiente do que a política FIFO. 
+Porém, após uma análise e estudo dos artigos correlacionados, foi possível observar 
+que a política de substituição LRU se mostra de forma pouco significativa mais eficiente
+do que a política FIFO. 
 
 \begin{thebibliography}{00}
 \bibitem{b1} J. Smith and B. Goodman, ''Instruction Cache Replacement Policies and Organizations'' in \emph{IEEE Transactions on Computers}, vol. C-34, no.3, pp. 234--241, March 1985.
