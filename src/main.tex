@@ -50,13 +50,21 @@ thiagohnogueira01@gmail.com}
 \maketitle
 
 \begin{abstract}
-Este aqui é um exemplo de abstract, é aqui 
-onde você dá uma prévia sobre o que é o
-artigo que será feito
+   Memória Cache em computadores tem vários algoritmos de 
+  substituição de dados ,dois desses algoritmos são FIFO( First In, First Out )
+  e LRU( Least Recently Used ), decidimos estudar a eficiência destes dois algoritmos.
+  Nossa ideia antes de começar é que LRU fosse ter um desempenho superior ao FIFO com o 
+  aumento do número de instruções e o aumento progresivo da Cache. Foram analisados
+  em vários testes com quantidade de instruções  diferentes e em hardware
+  variados visando avaliar como esses algoritmos atuariam em tais situações.
+  Desta forma, poderíamos ter uma visão clara de que tanto  a modificação
+  do hardware quanto das instruções que executam sobre eles têm um impacto significativo
+  na eficiência da leitura e escrita de dados da RAM para a cache ou de volta para a memória
+  principal.
 \end{abstract}
 
 \begin{IEEEkeywords}
-palavras, chaves
+Cache, algoritmos, FIFO, LRU, Tamanho Cache
 \end{IEEEkeywords}
 
 \section{Introdução}
@@ -74,19 +82,99 @@ Nesta seção, artigos relacionados à simulações de memória são apresentado
 Por exemplo, para cada artigo, um parágrafo. Ao final, um parágrafo que menciona
 a diferença entre o artigo em questão e os artigos correlatos.
 
-\subsection{Exemplo de subsection}
-
-Como colocar subsection no sistema IEEE
-
 \section{Metodologia ou Proposta de Arquiteturas}
 
-É possível ter duas seções, uma para cada, mas somente uma seção chamada 
-"Metodologia" ou "Propostas de Arquiteturas" será aceita. Nesta seção, as 
-arquiteturas simuladas são apresentadas, por exemplo, em formato de tabela, 
-com características, tais como, tamanho, associatividade, etc.  Pode ter figura
-de arquitetura em um formato de diagrama em blocos. Esta seção é importante, 
-porque ela explica e descreve o que será simulado, ou seja, os cenários escolhidos 
-por vocês para simulações.
+A metodologia utilizada no artigo consiste no estudo de artigos que se correlacionam com o tema estudado, 
+como também a utilização e desenvolvimento de arquiteturas feitas no simulador Amnesia.
+
+\begin{table}[H]
+  \caption{características gerais da arquitetura i}
+  \begin{center}
+      \begin{tabular}{|c|c|c|c|}
+          \hline
+          \textbf{Especificações} & \multicolumn{3}{|c|}{\textbf{Partes da Arquitetura}} \\
+          \cline{2-4} 
+          \textbf{da Arquitetura} & \textbf{\textit{Processador}}& \textbf{\textit{CPU}}& \textbf{\textit{Trace}} \\
+          \hline
+          Tamanho da palavra & --- & 4 & 4 \\
+          \hline
+          processorContains & 0 & --- & --- \\
+          \hline
+          Ciclos por escrita & 0 & --- & --- \\
+          \hline
+      \end{tabular}
+      \label{tab1}
+  \end{center}
+\end{table}
+
+\begin{table}[H]
+  \caption{características gerais da arquitetura ii}
+  \begin{center}
+      \begin{tabular}{|c|c|c|}
+          \hline
+          \textbf{Especificações} & \multicolumn{2}{|c|}{\textbf{Partes da Arquitetura}} \\
+          \cline{2-3} 
+          \textbf{da Arquitetura} & \textbf{\textit{Memória Principal}}& \textbf{\textit{Cache}} \\
+          \hline
+          Tamanho da linha / bloco & 1 & 1  \\
+          \hline
+          Ciclos por leitura & 1 & 1  \\
+          \hline
+          Ciclos por escrita & 2 & 2  \\
+          \hline
+          Tempo do ciclo & 10 & 1  \\
+          \hline
+          Tamanho da memória & 16 & {$^{\mathrm{*}}$}2  \\
+          \hline
+          Associatividade & --- & 2  \\
+          \hline
+          Politica de escrita & --- & Write-Through  \\
+          \hline
+          Politica de substituição & --- & {$^{\mathrm{*}}$}FIFO  \\
+          \hline
+          \multicolumn{3}{l}{$^{\mathrm{*}}$ Os valores com o asterisco foram os valores modificados.}
+      \end{tabular}
+      \label{tab1}
+  \end{center}
+\end{table}
+
+As tabelas acima mostram a arquitetura inicial utilizada no projeto para o desenvolvimento dos diversos 
+cenários que foram originados.    
+
+\begin{table}[H]
+  \caption{Dados modificados}
+  \begin{center}
+      \begin{tabular}{|c|c|c|}
+          \hline
+          \textbf{Especificações} & \multicolumn{2}{|c|}{\textbf{Valores}} \\
+          \cline{2-3} 
+          \textbf{da Arquitetura} & \textbf{Tamanho da Memoria} & \textbf{Politica de Substituição} \\
+          \hline
+          Cenário 1 & 2 & FIFO \\
+          \hline
+          Cenário 2 & 2 & LRU \\
+          \hline
+          Cenário 3 & 4 & FIFO\\
+          \hline
+          Cenário 4 & 4 & LRU\\
+          \hline
+          Cenário 5 & 8 & FIFO\\
+          \hline
+          Cenário 6 & 8 & LRU\\
+          \hline
+          Cenário 7 & 16 & FIFO\\
+          \hline
+          Cenário 8 & 16 & LRU\\
+          \hline
+          %\multicolumn{3}{l} {Sample of a Table footnote.}
+      \end{tabular}
+      \label{tab1}
+  \end{center}
+\end{table}
+
+Ao modificar o valor do tamanho da memória e da política de substituição da cache, é possível criar 8 cenários distintos
+para se avaliar o impacto do tamanho da cache no desempenho dos metodos de substituição. Sendo assim, com os cenários propostos
+foram realizados diversos testes com o intuito de analisar a Localidade Temporal e Localidade Espacial nas arquiteturas.
 
 \section{Avaliação dos Resultados}
 
@@ -95,14 +183,23 @@ por vocês para simulações.
 %Caso a metodologia de avaliação não tenha sido descrita em uma seção específica,
 %esta pode ser descrita no início desta seção.
 
+Nos gráficos subsequentes, há uma demonstração de como a memória cache se comporta ao ser usada com
+um grande conjunto de instruções de \emph{load} e \emph{store} (maior que sua capacidade) em cenários com caches de 2, 4, 8 e 16 linhas.
+Para fazer esses testes utilizamos um conjunto de 10, 50, 100, 250, 500, 750, 1.000 e 10.000 
+instruções.
+
 \begin{figure}[H]
 
-  \centering
+\subsection{Gráficos de hit rate por número de instruções}
+\raggedbottom
 
+  \begin{figure}[H]
+    \centering
+    \caption{\textit{\textbf{Cache com algoritmo de substituição FIFO}}}
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Hit rate},
       domain = 1:10000,
@@ -115,7 +212,6 @@ por vocês para simulações.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Cache com algoritmo de substituição FIFO}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 0.1)
@@ -166,14 +262,12 @@ por vocês para simulações.
 
 \end{figure}
 
-\begin{figure}[H]
-
-  \centering
-
+  \begin{figure}[H]
+    \caption{\textit{\textbf{Cache com algoritmo de substituição LRU}}}
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Hit rate},
       domain = 1:10000,
@@ -186,7 +280,6 @@ por vocês para simulações.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Cache com algoritmo de substituição LRU}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 0.1)
@@ -237,18 +330,26 @@ por vocês para simulações.
 
 \end{figure}
 
+Os dois gráficos acima foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos,
+considerando o artigo do James E. Smith e James R. Goodman, Instruction Cache Replacement Policies and Organizations
+nossos resultados foram bem próximos. Considerando que no início, pensavamos que haveria uma diferença significativa entre
+os algoritmos LRU e FIFO para substituição de valores na cache, achamos que nossos testes estavam errados e que precisariamos
+refazê-los, olhando a semelhança de resultados entre os nossos experimentos e os experimentos do artigo vimos que os valores
+eram válidos.
+
+\subsection{Tempo total de acesso aos dados por quantidade de instruções}
+
 \raggedbottom
 
 \begin{figure}[H]
 
-  \centering
-
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}}
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
-      ylabel=\textbf{Tempo de acesso a Cache},
+      ylabel=\textbf{Tempo de acesso à Cache},
       domain = 1:10000,
       xmin=10, xmax=10000,
       ymin=1, ymax=100000,
@@ -261,7 +362,6 @@ por vocês para simulações.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 100)
@@ -312,14 +412,15 @@ por vocês para simulações.
 
 \end{figure}
 
-\begin{figure}[H]
+  \begin{figure}[H]
 
-  \centering
+
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}}
 
   \begin{tikzpicture}
 
     \begin{axis}[
-      width =\linewidth,
+      width =\linewidth - 21,
       xlabel=Quantidade de instrução,
       ylabel=\textbf{Tempo de acesso a Cache},
       domain = 1:10000,
@@ -334,7 +435,6 @@ por vocês para simulações.
       ymajorgrids=true,
       legend  style={at={(0.5 ,-0.20)},
       anchor=north,legend  columns =-1},
-      title={\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}},
     ]
     \addplot [dashed,color=brown] coordinates {
       (10, 100)
@@ -385,12 +485,23 @@ por vocês para simulações.
 
 \end{figure}
 
+Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
+até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
+apenas no caso da cache com 16 linhas (mesmo tamanho que o processador), teve resultados que foram significativos, houve uma grande queda no tempo de acesso dos dados.
+Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de 2 a 8 linhas de tamanho.
+
 \section{Conclusões}
 
 Nas conclusões, inicia-se com um breve resumo do que foi o trabalho desenvolvido,
 depois faz-se uma discussão acerca dos objetivos alcançados. Ou seja, os objetivos
 apresentados na Introdução casam com os resultados discutidos na seção de Resultados? 
 Quais resultados podem ser destacados? Por fim, há um parágrafo para apresentar possíveis trabalhos futuros.
+
+Após a realização dos testes em todos os cenários propostos, e uma análise dos gráficos plotados houve um 
+receio de que o ponto da pesquisa não havia sido alcançado, já que os resultados se mostraram pouco expressivos.
+
+Porém, após uma análise e estudo dos artigos correlacionados, foi possível observar que a política de substituição 
+LRU se mostra de forma pouco significativa mais eficiente do que a política FIFO. 
 
 \begin{thebibliography}{00}
 \bibitem{b1} J. Smith and B. Goodman, ''Instruction Cache Replacement Policies and Organizations'' in \emph{IEEE Transactions on Computers}, vol. C-34, no.3, pp. 234--241, March 1985.
