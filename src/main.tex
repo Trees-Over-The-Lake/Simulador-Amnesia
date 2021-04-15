@@ -253,7 +253,7 @@ eram válidos.
     \begin{axis}[
       width =\linewidth - 21,
       xlabel=Quantidade de instrução,
-      ylabel=\textbf{Tempo de acesso a Cache},
+      ylabel=\textbf{Tempo de acesso à Cache},
       domain = 1:10000,
       xmin=10, xmax=10000,
       ymin=1, ymax=100000,
@@ -390,7 +390,8 @@ eram válidos.
 
 Os dois gráficos anteriores, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados, desde copiar da RAM para a cache
 até acessar esse valor no processador. Dentro dos valores que experimentamos, os valores se mantiveram bem próximos. O tempo de acesso aos dados se mostrou fora do padrão
-apenas no caso da cache com 16 linhas (mesmo tamanho que o processador),
+apenas no caso da cache com 16 linhas (mesmo tamanho que o processador), teve resultados que foram significativos, houve uma grande queda no tempo de acesso dos dados.
+Em todos os outros casos, o tempo se manteve muito próximo, mesmo que entre caches de 2 a 8 linhas de tamanho.
 
 \section{Conclusões}
 
