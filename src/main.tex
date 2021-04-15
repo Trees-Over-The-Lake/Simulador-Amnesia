@@ -139,12 +139,23 @@ utilizadas(fora a LRU) são diferentes e não há a utilização da FIFO. Além 
 dados teóricos para melhorar um método de análise de instrução estática de cache usando Pseudo LRU e a política 
 aleatória de troca. E mesmo assim, o próprio artigo provou que métodos não LRU demonstraram uma significante perca de precisão.
 
+Em contrapartida no artigo de Samira Mirbagher Ajorpaz \cite{b3} faz uma comparação qualitativa entre algumas políticas de substituição
+ com a GHRP a qual o artigo pretende discorrer sobre e mostrar a sua eficiência quanto às demais política entre ela a LRU.A partir
+  desse cenário o LRU se mostrou uma política bem intermediária  em alguns casos seus resultados sendo  próximos a valores de uma 
+  política de valores aleatórios,podemos até analisar que pela quantidade 1000 instruções e o tamanho da cache,mas esse é um resultado 
+  esperado pois a LRU é um tipo de política que não é eficiência em gerenciar valores que vão ser mantidos na memória em uma cache muito 
+  pequenas o que podemos notar no nosso trabalho  pois seus resultados não  diferenciam muitos da FIFO, que era esperando que fosse ter resultados
+   muito pior em relação ao LRU Image[\ref{ima1}] [\ref{ima2}] [\ref{ima3}] [\ref{ima4}]
+
+
+
 \section{Metodologia ou Proposta de Arquiteturas}
 
 %A metodologia utilizada no artigo consiste no estudo de artigos que se correlacionam com o tema estudado, 
 %como também a utilização e desenvolvimento de arquiteturas feitas no simulador Amnesia.
   Para a elaboração de teste utilizamos o simulador-Amnésia para elaborar algumas
-arquiteturas (tabelas \ref{tab1} e \ref{tab2}) que a partir delas executamos os testes (tabela \ref{tab3})
+arquiteturas (tabelas \ref{tab1} e \ref{tab2}) que a partir desses cenários serem executados
+executamos os testes (tabela \ref{tab3})
 \begin{table}[H]
   \caption{características gerais da arquitetura i}
     \centering
@@ -193,10 +204,7 @@ arquiteturas (tabelas \ref{tab1} e \ref{tab2}) que a partir delas executamos os 
       \end{tabular}
       \label{tab2}
 \end{table}
-
-As tabelas acima mostram a arquitetura inicial utilizada no projeto para o 
-desenvolvimento dos diversos cenários que foram originados.    
-
+ 
 \begin{table}[H]
   \caption{Dados modificados}
   \centering
@@ -249,8 +257,9 @@ instruções.
 \subsection{Gráficos de hit rate por número de instruções}
 
   \begin{figure}[H]
+
     \centering
-    \caption{\textit{\textbf{Cache com algoritmo de substituição FIFO}}}
+    
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -312,15 +321,16 @@ instruções.
   \legend{2 linhas, 4 linhas, 8 linhas, 16 linhas}
 
     \end{axis}
-    
-  \end{tikzpicture}
 
+  \end{tikzpicture}
+  \caption{\textit{\textbf{Cache com algoritmo de substituição FIFO}}}
+  \label{ima1}
 \end{figure}
 
   \begin{figure}[H]
-    \caption{\textit{\textbf{Cache com algoritmo de substituição LRU}}}
+   
   \begin{tikzpicture}
-
+    
     \begin{axis}[
       width =\linewidth - 21,
       xlabel=Quantidade de instrução,
@@ -383,6 +393,8 @@ instruções.
     
   \end{tikzpicture}
 
+  \caption{\textit{\textbf{Cache com algoritmo de substituição LRU}}}
+  \label{ima2}
 \end{figure}
 
 Os dois gráficos mostrados foram montados usando os valores que extraímos. Nota-se que os resultados foram muito próximos, aos resultados de James E. Smith
@@ -408,7 +420,6 @@ como parâmetro o tempo de vída mínimo de um elemento na cache(\emph{Minimum l
 
 \begin{figure}[H]
 
-  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}}
   \begin{tikzpicture}
 
     \begin{axis}[
@@ -474,13 +485,11 @@ como parâmetro o tempo de vída mínimo de um elemento na cache(\emph{Minimum l
     \end{axis}
     
   \end{tikzpicture}
-
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo FIFO}}}
+  \label{ima3}
 \end{figure}
 
   \begin{figure}[H]
-
-
-  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}}
 
   \begin{tikzpicture}
 
@@ -547,7 +556,8 @@ como parâmetro o tempo de vída mínimo de um elemento na cache(\emph{Minimum l
     \end{axis}
     
   \end{tikzpicture}
-
+  \caption{\textit{\textbf{Tempo total de acesso aos dados com algoritmo LRU}}}
+  \label{ima4}
 \end{figure}
 
 Esses dois últimos gráficos, seguindo a mesma linha do hit rate, mantêm proximidade dos valores no tempo de acesso dos dados,
