@@ -66,8 +66,8 @@ thiagohnogueira01@gmail.com}
   e \emph{LRU}( Least Recently Used ), decidimos estudar a eficiência destes dois algoritmos.
   Nossa ideia antecedente é de que o LRU fosse alcançar um desempenho superior ao FIFO, com o 
   aumento do número de instruções e o aumento progressivo da Cache. Foram analisados
-  em vários testes com quantidade de instruções diferentes e em hardwares,
-  variados visando avaliar como esses algoritmos atuariam em tais situações.
+  em vários testes com quantidade de instruções diferentes e em hardwares
+  variados, visando avaliar como esses algoritmos atuariam em tais situações.
   Desta forma, poderíamos ter uma visão clara de que tanto a modificação
   do hardware quanto das instruções que executam sobre eles têm um impacto significativo
   na eficiência da leitura e escrita de dados da RAM para a cache ou de volta para a memória
@@ -91,20 +91,20 @@ A Cache é um dispositivo de acesso rápido, que fica localizado dentro do proce
 com a intenção de reduzir o acesso do processador à memória principal, que demanda um
 tempo de acesso muito superior à cache. Criando uma referência da localidade do dado na 
 memória principal, até mesmo gravando esses dados, porém existe um limite de quantos 
-dados podem ser armazenados para isso é necessário uma política de armazenamento para 
+dados podem ser armazenados. Para isso é necessário uma política de armazenamento para 
 reocupar espaço quando necessário.
 
 Desde a invenção dos computadores, a busca por otimizar os processos que são executados 
 nos hardwares se tornou foco, considerando que simples ajustes podem render grandes 
 ganhos de desempenho. Dessa forma, um algoritmo eficiente na leitura e escrita de 
-dados na cache é de suma importância. 
+dados na cache é de grande importância. 
 
 Com isso em mente, pensamos em políticas de substituição clássicos, LRU e o FIFO, para
 averiguar qual possui melhor desempenho em diferentes cenários. Começamos pensando em 
 aumentar gradativamente o número de instruções que acessam as palavras na RAM para serem 
 escritas na cache. Dessa forma, seria simples visualizar como o número de instruções
 influencia no tempo de acesso aos dados. Além disso, pensamos também em vários cenários 
-com caches de diferentes tamanhos, desde de o mínimo de espaço possível até uma cache 
+com caches de diferentes tamanhos, desde o mínimo de espaço possível, até uma cache 
 de mesmo tamanho que a memória RAM.
 
 O resto do papel está organizado da seguinte maneira. Seção 2 irá mostrar pesquisas correlatas,
@@ -119,17 +119,17 @@ a nossa pesquisa.
 %Por exemplo, para cada artigo, um parágrafo. Ao final, um parágrafo que menciona
 %a diferença entre o artigo em questão e os artigos correlatos.
 
-A partir de James E. Smith e James R. Goodman\cite{b1}, tanto algoritmos de LRU quanto de FIFO para
-uma cache possuem o pior desempenho possível quando comparados a qualquer outro algoritmo. 
+A partir de James E. Smith e James R. Goodman\cite{b1}, tanto os algoritmos de LRU, quanto o de FIFO para
+uma cache, possuem o pior desempenho possível, quando comparados a qualquer outro algoritmo. 
 O exemplo principal deles foi mostrar como mapeamento aleatório consegue ser várias vezes mais eficaz, 
-uma vez que programas que precisam reescrever muitas vezes a cache e remover um valor que será reutilizado 
+uma vez que programas que precisam reescrever muitas vezes na cache e remover um valor que será reutilizado 
 em um futuro muito próximo.
 
-Considerando que é um artigo escrito em 1985, muitas coisas mudaram e não podemos usar mais esses resultados
+Considerando que \cite{b1} é um artigo escrito em 1985, muitas coisas mudaram e não pudemos usar mais esses resultados
 como verdadeiros em situações do dia-a-dia. Tanto o LRU quanto o FIFO se mostram ineficientes quando
-os programas se tornam maiores do que o tamanho de toda a cache do processador (resultado apresentado pelo artigo
-deles). Hoje, temos caches muito maiores do que naquela época, com isso, o principal foco da pesquisa do Smith e 
-do Goodman diminuindo o seu valor nos dias de hoje.Pois eles estavam considerando caches extremamente pequenas, na maior 
+os programas se tornam maiores do que o tamanho de toda a cache do processador (resultado apresentado pelo mesmo artigo). 
+Hoje, temos caches muito maiores do que naquela época, com isso, o principal foco da pesquisa do Smith e 
+do Goodman acabou perdendo o seu valor nos dias de hoje, já que estava sendo considerando caches extremamente pequenas, na maior 
 parte das vezes inferior ao tamanho de aplicações comuns do cotidiano.
 
 Por outro lado, o artigo \cite{b2}, por ser de 2008 poderia ser mais promissor em apresentar 
@@ -139,15 +139,13 @@ utilizadas(fora a LRU) são diferentes e não há a utilização da FIFO. Além 
 dados teóricos para melhorar um método de análise de instrução estática de cache usando Pseudo LRU e a política 
 aleatória de troca. E mesmo assim, o próprio artigo provou que métodos não LRU demonstraram uma significante perca de precisão.
 
-Em contrapartida no artigo de Samira Mirbagher Ajorpaz \cite{b3} faz uma comparação qualitativa entre algumas políticas de substituição
- com a GHRP a qual o artigo pretende discorrer sobre e mostrar a sua eficiência quanto às demais política entre ela a LRU.A partir
-  desse cenário o LRU se mostrou uma política bem intermediária  em alguns casos seus resultados sendo  próximos a valores de uma 
-  política de valores aleatórios,podemos até analisar que pela quantidade 1000 instruções e o tamanho da cache,mas esse é um resultado 
-  esperado pois a LRU é um tipo de política que não é eficiência em gerenciar valores que vão ser mantidos na memória em uma cache muito 
-  pequenas o que podemos notar no nosso trabalho  pois seus resultados não  diferenciam muitos da FIFO, que era esperando que fosse ter resultados
-   muito pior em relação ao LRU Image[\ref{ima1}] [\ref{ima2}] [\ref{ima3}] [\ref{ima4}]
-
-
+Em contrapartida, o artigo de Samira Mirbagher Ajorpaz \cite{b3} faz uma comparação qualitativa entre algumas políticas de substituição
+com a GHRP, a qual o artigo pretende discorrer sobre, e mostrar a sua eficiência quanto às demais política entre ela e a LRU. A partir
+desse cenário, o LRU se mostrou uma política bem intermediária, e em alguns casos seus resultados sendo próximos a valores de uma 
+política de valores aleatórios. Podemos até analisar que: pela quantidade de 1.000 instruções e o tamanho da cache este é um resultado 
+esperado, pois a LRU é um tipo de política que não é eficiente em gerenciar valores que vão ser mantidos na memória em caches muito 
+pequenas. O que podemos notar no nosso trabalho é que os resultados não diferenciam muitos da FIFO, o que era inesperado, pois acreditava-se 
+que o resultado fosse ser muito pior em relação ao LRU Image[\ref{ima1}] [\ref{ima2}] [\ref{ima3}] [\ref{ima4}]
 
 \section{Metodologia ou Proposta de Arquiteturas}
 
@@ -590,7 +588,7 @@ e que aleatoriedade é mais eficiente. Enquanto no artigo da Samira Mirbagher Aj
 mostrou que o desempenho do LRU é pouco superior ao FIFO, algo que consegue ser detectado, mas seu uso diário não teria melhora perceptível e 
 que seria mais importante considerar outros tantos algoritmos que possuem um desempenho significativamente superior aos dois anteriores. Por fim, 
 o artigo de Aurore Junier, Damien Hardy, Isabelle Puaut \cite{b2}, mostrou algo inusitado, indo na direção oposta dos outros dois artigos, 
-apresentou dados de que o LRU possui sim um desempenho superior à inserção aleatória de dados na cache.
+apresentou dados de que o LRU pode sim ter um desempenho superior à inserção aleatória de dados na cache.
 
 Concluindo, nossos testes demonstraram que não há grande diferença desses algoritmos quando usados em caches pequenas, os dois primeiros artigos
 concordam com nosso posicionamento, enquanto o outro artigo discordou. Dessa forma, é importante manter essa discussão aberta para novos experimentos.
